@@ -1,0 +1,54 @@
+* {
+  text-align: center;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+  /* background-color: aliceblue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  height: 50px;
+}
+
+.container .btn {
+  cursor: pointer;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  border: none;
+  background-color: aliceblue;
+  color: black;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease;
+}
+
+.container .text {
+  height: 50px;
+  border: none;
+  transition: width 0.5s ease;
+  width: 50px;
+}
+
+.container.active .text {
+  width: 200px;
+}
+
+
+.container.active .btn {
+  transform: translateX(198px);
+}
+
+
+.btn:focus,
+.text:focus {
+  outline: none;
+}
