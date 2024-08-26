@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+body {
+  background-color: #bde753;
+  height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+
+    #eafbbf 50%,
+    #bde753 50%,
+    #bde753 100%
+  );
+  font-family: "Muli", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+}
+
+nav {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgb(0, 0, 0, 0.4);
+  width: 60px;
+  height: 60px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* overflow-x: hidden; */
+  transition: width 0.6s linear;
+}
+
+nav.active {
+  width: 350px;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  width: 0;
+  transition: width 0.6s linear;
+  /* 加上 overflow: hidden; 是为了防止 ul 里的内容（如 li 列表项）在 ul 宽度为 0 时溢出容器，使得这些内容在容器外不可见。这样可以确保在导航栏展开和收缩时，内容不会意外显示出来，过渡效果更加流畅自然。 */
+}
+
+nav.active ul {
+  width: 100%;
+}
+
+nav ul li {
+  opacity: 0;
+  transform: rotateY(0deg);
+  transition: transform 0.6s linear, opacity 0.6s linear;
+}
+
+nav.active ul li {
+  opacity: 1;
+  transform: rotateY(-360deg);
+}
+
+nav ul li a {
+  margin: 0 6px;
+  text-decoration: none;
+  color: black;
+}
+
+nav .icon {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border: none;
+  position: relative;
+  background-color: #fff;
+}
+
+.icon:focus {
+  outline: 0;
+}
+
+.icon .line {
+  background-color: #5290f9;
+  height: 2px;
+  width: 20px;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  transition: transform 0.6s linear;
+}
+
+.icon .line2 {
+  position: absolute;
+  bottom: 10px;
+  top: auto;
+}
+
+nav.active .icon .line1 {
+  transform: rotate(-765deg) translateY(5.5px);
+}
+
+nav.active .icon .line2 {
+  transform: rotate(765deg) translateY(-5.5px);
+}
